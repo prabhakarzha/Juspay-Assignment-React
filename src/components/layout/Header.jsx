@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <header className="bg-[#0f0f0f] text-gray-300 border-b border-gray-700 flex items-center justify-between h-[68px] px-4 md:px-7 relative z-40">
+      <header className="bg-[#0f0f0f] text-gray-300 border-b border-gray-700 flex items-center justify-between h-[68px] px-4 md:px-7 relative z-40 mr-14 md:mr-0">
         {/* Left: Breadcrumb */}
         <div className="flex items-center gap-2 text-sm truncate">
           <img
@@ -25,11 +25,13 @@ const Header = () => {
           <img
             src={star}
             alt="star"
-            className="w-[17.5px] h-[16.87px] object-contain"
+            className="w-[17.5px] h-[16.87px] object-contain hidden md:block"
           />
-          <span className="text-gray-400 hidden sm:inline">Dashboards</span>
-          <span className="hidden sm:inline">/</span>
-          <span className="text-white font-medium">Default</span>
+          <span className="text-gray-400 sm:inline">Dashboards</span>
+          <span className="md:inline hidden">/</span>
+          <span className="text-white hidden md:block font-medium">
+            Default
+          </span>
         </div>
 
         {/* Right: Actions */}
@@ -77,7 +79,9 @@ const Header = () => {
                 key={i}
                 src={img}
                 alt={`icon-${i}`}
-                className="w-5 h-5 cursor-pointer object-contain"
+                className={`w-5 h-5 cursor-pointer object-contain ${
+                  img == Icon2 ? "hidden md:block" : "block"
+                }`}
               />
             ))}
           </div>

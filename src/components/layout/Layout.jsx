@@ -9,10 +9,10 @@ const Layout = () => {
         <section className=" col-span-2 h-[100%] bg-[#0f0f0f]">
           <Sidebar />
         </section>
-        <section className="border border-gray-400 col-span-7 h-[100%] bg-[#0f0f0f]">
+        <section className="md:border md:border-gray-400 md:col-span-7 h-[100%] bg-[#0f0f0f] col-span-10">
           <Header />
         </section>
-        <section className=" col-span-3 h-[100%] bg-[#0f0f0f]">
+        <section className=" md:col-span-3 h-[100%] bg-[#0f0f0f]">
           <Rightbar />
         </section>
       </div>

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   BarChart,
   Bar,
@@ -98,6 +99,12 @@ const CustomTooltips = ({ active, payload }) => {
 };
 
 export default function DashboardContent() {
+  const navigate = useNavigate();
+  const handleCard = (x) => {
+    if (x == 1) {
+      navigate("/orders");
+    }
+  };
   return (
     <div className="space-y-6">
       {/* Top row: stats + bar chart */}
@@ -115,6 +122,7 @@ export default function DashboardContent() {
                     ? "bg-[#E3F5FF] text-gray-900"
                     : "bg-[#1c1c1c] border border-gray-700 text-white"
                 }`}
+                onClick={() => handleCard(idx)}
               >
                 <div className="text-xs font-medium">{stat.title}</div>
                 <div className="flex items-center justify-between mt-2">

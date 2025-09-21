@@ -24,10 +24,14 @@ const Sidebar = () => {
   const favoriteLinks = [{ label: "Overview" }, { label: "Projects" }];
 
   const dashboardLinks = [
-    { label: "Default", image: dashboardImages[0] },
-    { label: "eCommerce", image: dashboardImages[1] },
-    { label: "Projects", image: dashboardImages[2] },
-    { label: "Online Courses", image: dashboardImages[3] },
+    { label: "Default", image: dashboardImages[0], to: "/" }, // ✅ fixed
+    { label: "eCommerce", image: dashboardImages[1], to: "/ecommerce" },
+    { label: "Projects", image: dashboardImages[2], to: "/projects" },
+    {
+      label: "Online Courses",
+      image: dashboardImages[3],
+      to: "/online-courses",
+    },
   ];
 
   const pageLinks = [
@@ -49,7 +53,7 @@ const Sidebar = () => {
     links.map(({ label, to, icon, image }) => (
       <Link
         key={label}
-        to={to}
+        to={to || "#"}
         className="hover:bg-gray-800 rounded p-2 flex items-center gap-2"
       >
         {isFavorite && (
@@ -81,7 +85,7 @@ const Sidebar = () => {
     <>
       {/* Mobile Toggle Button */}
       <button
-        className="md:hidden p-2 text-gray-300 fixed top-4 left-4 z-50 bg-gray-800 rounded"
+        className="md:hidden p-2 text-gray-300 fixed top-4 left-4 z-[1000] bg-gray-800 rounded"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -91,7 +95,7 @@ const Sidebar = () => {
       <aside
         className={`
           bg-[#0f0f0f] h-full p-5 w-45
-          fixed top-0 left-0 z-40
+          fixed top-0 left-0 z-[999]
           transform transition-transform duration-300
           ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
           md:static md:translate-x-0
@@ -142,7 +146,7 @@ const Sidebar = () => {
               {profileLinks.map(({ label, to }) => (
                 <Link
                   key={label}
-                  to={to}
+                  to={to || "#"}
                   className="hover:bg-gray-800 rounded p-2"
                 >
                   {label}
