@@ -98,7 +98,15 @@ const RightBar = () => {
       </button>
 
       {/* Sidebar */}
-      <aside className="bg-[#0f0f0f] h-full p-5 flex flex-col gap-6">
+      <aside
+        className={`
+          bg-[#0f0f0f] h-full p-5 flex flex-col gap-6
+          fixed top-0 right-0 w-72 z-40
+          transform transition-transform duration-300
+          ${mobileOpen ? "translate-x-0" : "translate-x-full"}
+          md:static md:translate-x-0 md:w-72 md:min-h-screen
+        `}
+      >
         {renderSection("Notifications", notifications, (item, i) => (
           <div key={i} className="flex items-start gap-2">
             <div

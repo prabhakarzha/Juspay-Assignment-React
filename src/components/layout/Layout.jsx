@@ -1,9 +1,8 @@
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import Rightbar from "./Rightbar";
-import DashboardContent from "./DashboardContent";
 
-const Layout = ({ children }) => {
+const Layout = () => {
   return (
     <div>
       <div className="grid grid-cols-12 min-h-screen text-white">

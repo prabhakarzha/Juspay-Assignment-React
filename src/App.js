@@ -6,12 +6,10 @@ import OrderList from "./pages/OrderList";
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/orders" element={<OrderList />} />
-        </Routes>
-      </Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/orders" element={<OrderList />} />
+      </Routes>
     </Router>
   );
 }

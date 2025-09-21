@@ -1,20 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import {
-  LayoutDashboard,
-  ShoppingBag,
-  Folder,
-  BookOpen,
-  User,
-  Star,
-  Clock,
-  UserCircle,
-  Briefcase,
-  File,
-  Share2,
-  Menu,
-  X,
-} from "lucide-react"; // icons
+import { Menu, X } from "lucide-react"; // बाकी icons वैसे ही रहेंगे
 import Byewind from "../../assets/ByeWind.png";
 import Account from "../../assets/Account.png";
 import corporate from "../../assets/corporate.png";
@@ -31,10 +17,10 @@ import onlinecourse from "../../assets/onlinecourse.png";
 
 const Sidebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const pageImages = [Account, corporate, blog, social];
   const dashboardImages = [Default, ecommerce, projects, onlinecourse];
 
-  // Menu sections
   const favoriteLinks = [{ label: "Overview" }, { label: "Projects" }];
 
   const dashboardLinks = [
@@ -66,12 +52,10 @@ const Sidebar = () => {
         to={to}
         className="hover:bg-gray-800 rounded p-2 flex items-center gap-2"
       >
-        {/* Grey dot for Favorites only */}
         {isFavorite && (
           <span className="w-2 h-2 rounded-full bg-gray-500"></span>
         )}
 
-        {/* Right Arrow (invisible placeholder for Default) */}
         {image &&
           (label === "Default" ? (
             <span className="w-3 h-3 opacity-0"></span>
@@ -83,7 +67,6 @@ const Sidebar = () => {
             />
           ))}
 
-        {/* Main Icon/Image */}
         {image ? (
           <img src={image} alt={label} className="w-4 h-4 object-contain" />
         ) : (
@@ -105,7 +88,15 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar */}
-      <aside className="bg-[#0f0f0f]h-full p-5 ">
+      <aside
+        className={`
+          bg-[#0f0f0f] h-full p-5 w-45
+          fixed top-0 left-0 z-40
+          transform transition-transform duration-300
+          ${mobileOpen ? "translate-x-0" : "-translate-x-full"}
+          md:static md:translate-x-0
+        `}
+      >
         <div className="flex items-center gap-2 mb-6">
           <img src={Byewind} />
           <h1 className="text-lg font-semibold text-white">ByeWind</h1>
@@ -117,8 +108,7 @@ const Sidebar = () => {
             Favorites <span className="pl-12">Recently</span>
           </p>
           <nav className="flex flex-col gap-1">
-            {renderLinks(favoriteLinks, true)}{" "}
-            {/* 👈 Pass true for favorites */}
+            {renderLinks(favoriteLinks, true)}
           </nav>
         </div>
 
@@ -134,7 +124,6 @@ const Sidebar = () => {
         <div className="flex-1">
           <p className="text-xs text-gray-500 mb-2">Pages</p>
           <nav className="flex flex-col gap-1">
-            {/* Static User Profile with 2 images */}
             <div className="hover:bg-gray-800 rounded p-2 flex items-center gap-2">
               <img
                 src={ArrowLineDown}
@@ -149,7 +138,6 @@ const Sidebar = () => {
               User Profile
             </div>
 
-            {/* Always visible profileLinks */}
             <div className="ml-6 flex flex-col gap-1">
               {profileLinks.map(({ label, to }) => (
                 <Link
@@ -162,7 +150,6 @@ const Sidebar = () => {
               ))}
             </div>
 
-            {/* Page Links */}
             {renderLinks(pageLinks)}
           </nav>
         </div>

@@ -1,9 +1,9 @@
-import OrderTable from "../components/Order/OrderTable";
+import OrderLayout from "../components/Order/OrderLayout";
 
 const OrderList = () => {
   return (
-    <div className="p-4">
-      <OrderTable />
+    <div className="">
+      <OrderLayout />
     </div>
   );
 };

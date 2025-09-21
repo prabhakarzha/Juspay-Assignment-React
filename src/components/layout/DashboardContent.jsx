@@ -101,27 +101,28 @@ export default function DashboardContent() {
   return (
     <div className="space-y-6">
       {/* Top row: stats + bar chart */}
-      <div className="grid grid-cols-12 gap-6 items-start">
+      <h2 className="text-lg font-Inter p-2">eCommerce</h2>
+
+      <div className="grid grid-cols-12 gap-6 items-start h-auto md:h-[252px]">
         {/* Stats */}
-        <div className="col-span-6">
-          <div className="grid grid-cols-2 gap-4 p-5">
+        <div className="col-span-12 md:col-span-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-2 gap-4 p-5">
             {stats.map((stat, idx) => (
               <div
                 key={idx}
                 className={`rounded-[12px] p-4 flex flex-col justify-between shadow-md ${
                   idx === 0 || idx === 3
-                    ? "bg-[#E3F5FF] text-gray-900" // first & last white
-                    : "bg-[#1c1c1c] + border border-gray-700 text-white" // middle two red
+                    ? "bg-[#E3F5FF] text-gray-900"
+                    : "bg-[#1c1c1c] border border-gray-700 text-white"
                 }`}
               >
-                {/* Title */}
                 <div className="text-xs font-medium">{stat.title}</div>
-
-                {/* Value + Change in one row */}
                 <div className="flex items-center justify-between mt-2">
-                  <div className="text-2xl font-extrabold">{stat.value}</div>
+                  <div className="text-lg sm:text-2xl font-extrabold">
+                    {stat.value}
+                  </div>
                   <div
-                    className={`flex items-center text-sm ${
+                    className={`flex items-center text-xs sm:text-sm ${
                       stat.up ? "text-green-400" : "text-red-200"
                     }`}
                   >
@@ -139,14 +140,14 @@ export default function DashboardContent() {
         </div>
 
         {/* Bar Chart */}
-        <div className="col-span-6 p-5">
-          <div className="w-full bg-[#1c1c1c] + border border-gray-700 rounded-[12px] p-6 shadow-md h-[252px]">
+        <div className="col-span-12 md:col-span-6 p-5">
+          <div className="w-full bg-[#1c1c1c] border border-gray-700 rounded-[12px] p-4 shadow-md">
             <div className="flex items-center justify-between mb-3">
               <h2 className="text-white font-semibold">
                 Projections vs Actuals
               </h2>
             </div>
-            <div className="h-[180px] flex items-end pb-4">
+            <div className="h-[200px] md:h-[125px] flex items-end pb-4">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={barData}
@@ -205,12 +206,12 @@ export default function DashboardContent() {
       {/* Revenue row */}
       <div className="grid grid-cols-12 gap-6 p-5">
         {/* Line Chart */}
-        <div className="col-span-9 bg-[#1c1c1c] + border border-gray-700 rounded-[12px] p-4 shadow-md">
+        <div className="col-span-12 md:col-span-9 bg-[#1c1c1c] border border-gray-700 rounded-[12px] p-4 shadow-md">
           <div className="flex items-center space-x-6 mb-4 text-white">
             <h2 className="font-semibold">Revenue</h2>
           </div>
-          <div style={{ height: 320 }}>
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="h-[200px] md:h-[220px]">
+            <ResponsiveContainer width="100%">
               <LineChart data={lineData}>
                 <XAxis dataKey="name" stroke="#aaa" />
                 <YAxis
@@ -241,7 +242,7 @@ export default function DashboardContent() {
         </div>
 
         {/* Location */}
-        <div className="col-span-3 bg-[#1c1c1c] + border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
+        <div className="col-span-12 md:col-span-3 bg-[#1c1c1c] border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
           <h2 className="text-sm font-semibold mb-3 whitespace-nowrap">
             Revenue by Location
           </h2>
@@ -274,10 +275,10 @@ export default function DashboardContent() {
       {/* Products + Pie */}
       <div className="grid grid-cols-12 gap-6 p-5">
         {/* Products */}
-        <div className="col-span-9 bg-[#1c1c1c] + border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
+        <div className="col-span-12 md:col-span-9 bg-[#1c1c1c] border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
           <h2 className="text-sm font-semibold mb-3">Top Selling Products</h2>
           <div className="overflow-x-auto">
-            <table className="w-full text-sm text-left">
+            <table className="w-full text-xs sm:text-sm text-left">
               <thead>
                 <tr className="border-b border-gray-700">
                   <th className="pb-2 font-medium">Name</th>
@@ -304,7 +305,7 @@ export default function DashboardContent() {
         </div>
 
         {/* Pie */}
-        <div className="col-span-3 bg-[#1c1c1c] + border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
+        <div className="col-span-12 md:col-span-3 bg-[#1c1c1c] border border-gray-700 text-white rounded-[12px] p-4 shadow-md">
           <h2 className="text-sm font-semibold mb-3">Total Sales</h2>
           <div className="flex justify-center">
             <PieChart width={130} height={130}>
