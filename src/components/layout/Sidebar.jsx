@@ -85,7 +85,7 @@ const Sidebar = () => {
     <>
       {/* Mobile Toggle Button */}
       <button
-        className="md:hidden p-2 text-gray-300 fixed top-4 left-4 z-[1000] bg-gray-800 rounded"
+        className="md:hidden p-2 text-gray-300 fixed top-2 left-0 z-[1000] bg-gray-900 rounded"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         {mobileOpen ? <X size={20} /> : <Menu size={20} />}

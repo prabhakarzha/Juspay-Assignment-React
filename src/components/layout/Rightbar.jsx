@@ -91,7 +91,7 @@ const RightBar = () => {
     <>
       {/* Mobile Toggle Button */}
       <button
-        className="md:hidden fixed top-4 right-4 z-50 p-3 bg-gray-800 rounded-full shadow-lg text-gray-300"
+        className="md:hidden p-2 text-gray-300 fixed top-2 right-0 z-[1000] bg-gray-900 rounded"
         onClick={() => setMobileOpen(!mobileOpen)}
       >
         {mobileOpen ? <X size={20} /> : <Menu size={20} />}

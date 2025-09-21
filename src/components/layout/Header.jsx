@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="flex flex-col">
       {/* Header */}
-      <header className="bg-[#0f0f0f] text-gray-300 border-b border-gray-700 flex items-center justify-between h-[68px] px-4 md:px-7 relative z-40 mr-14 md:mr-0">
+      <header className="bg-[#0f0f0f] text-gray-900 border-b border-gray-900 flex items-center justify-between h-[68px] px-4 md:px-7 relative z-40 mr-14 md:mr-0">
         {/* Left: Breadcrumb */}
         <div className="flex items-center gap-2 text-sm truncate">
           <img

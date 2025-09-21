@@ -9,7 +9,7 @@ const OrderLayout = () => {
         <section className=" col-span-2 h-[100%] bg-[#0f0f0f]">
           <Sidebar />
         </section>
-        <section className="border border-gray-400 col-span-10 h-[100%] bg-[#0f0f0f]">
+        <section className="border border-gray-900 col-span-10 h-[100%] bg-[#0f0f0f]">
           <CustomHeader />
           <OrderTable />
         </section>
